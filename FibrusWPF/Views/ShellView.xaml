@@ -4,18 +4,35 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FibrusWPF.Views"
-        mc:Ignorable="d" FontSize="20"
-        Title="ShellView" Height="600" Width="800" WindowStartupLocation="CenterScreen">
-    <Grid>
-        <DataGrid x:Name="Students"  AlternatingRowBackground="Gray"
-                  AutoGenerateColumns="False" >
+        mc:Ignorable="d" 
+        FontSize="20"
+        Title="Fibrus" 
+        Height="800" 
+        Width="1200" 
+        WindowStartupLocation="CenterScreen">
+    <Grid Background="White">
+        <DataGrid x:Name="Students"  AlternatingRowBackground="AliceBlue"
+                  AutoGenerateColumns="False" Margin="25,24,305,0"
+                  Background="White" HeadersVisibility="Column" BorderBrush="{x:Null}">
+
+
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="Orange"/>
+                    <Setter Property="FontWeight" Value="SemiBold"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="Margin" Value="-1,-1,0,1" />
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>  
+                </Style>
+            </DataGrid.Resources>
+
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Number" Binding="{Binding Path=Id}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Full name" Binding="{Binding Path=Personals}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Marks" Binding="{Binding Path=MarkString}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Average grade" Binding="{Binding Path=AverageGrade}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Marks list" Binding="{Binding Path=Marks}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Number" Binding="{Binding Path=Id}" Width="100"/>
+                <DataGridTextColumn Header="Full name" Binding="{Binding Path=Personals}" Width="200"/>
+                <DataGridTextColumn Header="Average grade" Binding="{Binding Path=AverageGrade}" Width="150"/>
+                <DataGridTextColumn Header="Marks" Binding="{Binding Path=MarkString}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
+        <Button Content="Add New Student" HorizontalAlignment="Left" Margin="932,63,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
