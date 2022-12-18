@@ -1,27 +1,31 @@
 ﻿using Caliburn.Micro;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Fibrus.Models;
+using Fibrus.Utils;
 
 namespace FibrusWPF.ViewModels
 {
-    public class ShellViewModel : Screen
+	public class ShellViewModel : Screen
     {
-		private string? _firstName;
+		private TextDatabase textDatabase = TextDatabase.getInstance();
+		private StudentClass studentClass;
+		private BindableCollection<Student> _students;
 
-		public string FirstName
-		{
-			get 
+		public BindableCollection<Student> Students 
+		{ 
+			get
 			{
-				return _firstName; 
+				return _students;
 			}
-			set 
-			{ 
-				_firstName = value; 
-			}
+			set
+			{
+				_students = value;
+			} 
 		}
-
+		public ShellViewModel()
+		{
+			studentClass = textDatabase.getStudentClasses(0);
+			Students = new BindableCollection<Student>(studentClass.Students);
+		}
+	
 	}
 }

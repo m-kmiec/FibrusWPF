@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FibrusWPF", "FibrusWPF\FibrusWPF.csproj", "{619BEB25-E7ED-4E6C-A7E6-EF0C9A40AA66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FibrusWPF", "FibrusWPF\FibrusWPF.csproj", "{619BEB25-E7ED-4E6C-A7E6-EF0C9A40AA66}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FibrusConsole", "..\..\..\..\..\..\source\repos\SuperLab\SuperLab\FibrusConsole.csproj", "{F7C49E0A-B9C4-41EE-97EC-F0C5B74562F2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{619BEB25-E7ED-4E6C-A7E6-EF0C9A40AA66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{619BEB25-E7ED-4E6C-A7E6-EF0C9A40AA66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{619BEB25-E7ED-4E6C-A7E6-EF0C9A40AA66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7C49E0A-B9C4-41EE-97EC-F0C5B74562F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7C49E0A-B9C4-41EE-97EC-F0C5B74562F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7C49E0A-B9C4-41EE-97EC-F0C5B74562F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7C49E0A-B9C4-41EE-97EC-F0C5B74562F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
