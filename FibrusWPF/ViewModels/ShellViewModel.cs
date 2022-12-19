@@ -7,6 +7,7 @@ namespace FibrusWPF.ViewModels
 	public class ShellViewModel : Screen
     {
 		private TextDatabase textDatabase = TextDatabase.getInstance();
+		
 		private StudentClass studentClass;
 		private BindableCollection<Student> _students;
 
@@ -23,7 +24,7 @@ namespace FibrusWPF.ViewModels
 		}
 		public ShellViewModel()
 		{
-			studentClass = textDatabase.getStudentClasses(0);
+			studentClass = textDatabase.getStudentClasses(1);
 			Students = new BindableCollection<Student>(studentClass.Students);
 		}
 	
