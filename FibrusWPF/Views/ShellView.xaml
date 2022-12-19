@@ -45,6 +45,5 @@
                 </DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Add New Student" HorizontalAlignment="Left" Margin="932,63,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
