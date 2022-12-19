@@ -11,10 +11,29 @@
         Width="1200" 
         WindowStartupLocation="CenterScreen">
     <Grid Background="White">
-        <DataGrid x:Name="Students"  AlternatingRowBackground="AliceBlue"
-                  AutoGenerateColumns="False" Margin="25,24,305,0"
-                  Background="White" HeadersVisibility="Column" BorderBrush="{x:Null}">
 
+        <ComboBox 
+            HorizontalAlignment="Left" 
+            Margin="398,10,0,0" 
+            VerticalAlignment="Top" 
+            Width="120" Height="39" 
+            ItemsSource="{ Binding StudentClasses }"
+            SelectedItem="{ Binding SelectedStudentClass }">
+
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{ Binding ClassName}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <DataGrid ItemsSource="{Binding StudentsForSelectedClass}"  
+                  AlternatingRowBackground="AliceBlue"
+                  AutoGenerateColumns="False" 
+                  Margin="25,69,310,25"
+                  Background="White" 
+                  HeadersVisibility="Column" 
+                  BorderBrush="{x:Null}">
 
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
@@ -45,5 +64,6 @@
                 </DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
+
     </Grid>
 </Window>

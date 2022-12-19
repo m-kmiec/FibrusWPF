@@ -7,26 +7,49 @@ namespace FibrusWPF.ViewModels
 	public class ShellViewModel : Screen
     {
 		private TextDatabase textDatabase = TextDatabase.getInstance();
-		
-		private StudentClass studentClass;
-		private BindableCollection<Student> _students;
 
-		public BindableCollection<Student> Students 
+		private StudentClass _selectedStudentClass;
+		private BindableCollection<Student> _studentsForSelectedClass;
+		private BindableCollection<StudentClass> _studentClasses;
+
+		public StudentClass SelectedStudentClass 
 		{ 
-			get
-			{
-				return _students;
-			}
+			get { return _selectedStudentClass; }
 			set
 			{
-				_students = value;
+                _selectedStudentClass = value;
+                NotifyOfPropertyChange(() => SelectedStudentClass);
+				UpdateGrid();
+			}
+		}
+		public BindableCollection<Student> StudentsForSelectedClass 
+		{ 
+			get {	return _studentsForSelectedClass;  }
+			set	
+			{	
+				_studentsForSelectedClass = value;
+				NotifyOfPropertyChange(() => StudentsForSelectedClass);
 			} 
 		}
+		public BindableCollection<StudentClass> StudentClasses
+		{
+			get { return _studentClasses; }
+			set { _studentClasses = value; }
+		}
+
 		public ShellViewModel()
 		{
-			studentClass = textDatabase.getStudentClasses(1);
-			Students = new BindableCollection<Student>(studentClass.Students);
+			getStudentClasses();
 		}
-	
+
+		private void getStudentClasses()
+		{
+			StudentClasses = new BindableCollection<StudentClass>(textDatabase.getStudentClasses());
+		}
+
+		private void UpdateGrid()
+		{
+			StudentsForSelectedClass = new BindableCollection<Student>(SelectedStudentClass.Students);
+		}
 	}
 }
