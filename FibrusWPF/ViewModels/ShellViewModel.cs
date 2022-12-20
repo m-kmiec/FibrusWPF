@@ -1,11 +1,19 @@
 ﻿using Caliburn.Micro;
 using Fibrus.Models;
 using Fibrus.Utils;
+using FibrusWPF.Events;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Controls.Primitives;
 
 namespace FibrusWPF.ViewModels
 {
-	public class ShellViewModel : Conductor<object>
+	public class ShellViewModel : Conductor<object>, IHandle<SubmitEvent>
     {
+		private readonly IEventAggregator _eventAggregator;
+		private StudentAdditionViewModel StudentAdditionViewModel { get; set; }
+
 		private TextDatabase textDatabase = TextDatabase.getInstance();
 
 		private StudentClass _selectedStudentClass;
@@ -34,12 +42,17 @@ namespace FibrusWPF.ViewModels
 		public BindableCollection<StudentClass> StudentClasses
 		{
 			get { return _studentClasses; }
-			set { _studentClasses = value; }
+			set { _studentClasses = value;
+				NotifyOfPropertyChange(() => StudentClasses);
+			}
 		}
 
-		public ShellViewModel()
+		[System.Obsolete]
+		public ShellViewModel(IEventAggregator eventAggregator)
 		{
 			getStudentClasses();
+			_eventAggregator = eventAggregator;
+			eventAggregator.SubscribeOnPublishedThread(this);
 		}
 
 		private void getStudentClasses()
@@ -54,7 +67,19 @@ namespace FibrusWPF.ViewModels
 
 		public void LoadStudentAdditionForm()
 		{
-			ActivateItemAsync(new StudentAdditionViewModel());
+			StudentAdditionViewModel = new StudentAdditionViewModel(_eventAggregator);
+			ActivateItemAsync(StudentAdditionViewModel);
 		}
+
+        public void LoadStudentDeletionForm()
+		{
+			
+		}
+
+        Task IHandle<SubmitEvent>.HandleAsync(SubmitEvent message, CancellationToken cancellationToken)
+		{
+			DeactivateItemAsync(StudentAdditionViewModel, true);
+            return Task.CompletedTask;
+        }
 	}
 }
