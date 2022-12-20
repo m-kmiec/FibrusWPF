@@ -84,11 +84,9 @@
         <ContentControl 
              x:Name="ActiveItem"
              HorizontalAlignment="Left" 
-             Height="350" Margin="975,69,0,0" 
+             Height="525" Margin="975,69,0,0" 
              VerticalAlignment="Top"
-             Width="230"/>
-        
-
+             Width="430"/>
 
     </Grid>
 </Window>

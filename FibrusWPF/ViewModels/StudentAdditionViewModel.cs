@@ -56,7 +56,7 @@ namespace FibrusWPF.ViewModels
 		}
 		public void OnSubmit()
 		{
-			_eventAggregator.PublishOnUIThreadAsync(new SubmitEvent("student added"));
+			_eventAggregator.PublishOnUIThreadAsync(new SubmitEvent(FirstName, LastName, ClassName, Marks));
 			textDatabase.AddStudent(FirstName, LastName, ClassName, Marks);
 		}
 

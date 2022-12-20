@@ -6,19 +6,19 @@
              xmlns:local="clr-namespace:FibrusWPF.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid Margin="0,0,605,20">
 
-        <TextBox x:Name="FirstName" HorizontalAlignment="Left" Margin="25,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" Height="30"/>
-        <TextBox x:Name="LastName" HorizontalAlignment="Left" Margin="25,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" RenderTransformOrigin="0.5,0.5" Height="30"/>
-        <TextBox x:Name="ClassName" HorizontalAlignment="Left" Margin="25,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" RenderTransformOrigin="0.5,0.5" Height="30"/>
+        <TextBox x:Name="FirstName" HorizontalAlignment="Left" Margin="25,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="30"/>
+        <TextBox x:Name="LastName" HorizontalAlignment="Left" Margin="25,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" RenderTransformOrigin="0.5,0.5" Height="30"/>
+        <TextBox x:Name="ClassName" HorizontalAlignment="Left" Margin="25,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" RenderTransformOrigin="0.5,0.5" Height="30"/>
 
-        <Label Content="Surname" HorizontalAlignment="Left" Height="60" Margin="20,75,0,0" VerticalAlignment="Top" Width="130" Foreground="#FFDDAEEC" FontSize="20"/>
+        <Label Content="Surname" HorizontalAlignment="Left" Height="35" Margin="20,75,0,0" VerticalAlignment="Top" Width="125" Foreground="#FFDDAEEC" FontSize="20"/>
         <Label Content="Name" HorizontalAlignment="Left" Height="45" Margin="20,10,0,0" VerticalAlignment="Top" Width="130" Foreground="#FFDDAEEC" FontSize="20"/>
-        <Label Content="Class" HorizontalAlignment="Left" Height="60" Margin="20,140,0,0" VerticalAlignment="Top" Width="130" Foreground="#FFDDAEEC" FontSize="20"/>
+        <Label Content="Class" HorizontalAlignment="Left" Height="40" Margin="20,140,0,0" VerticalAlignment="Top" Width="130" Foreground="#FFDDAEEC" FontSize="20"/>
 
-        <Button Content="Submit" x:Name="OnSubmit" HorizontalAlignment="Left" Margin="105,280,0,0" VerticalAlignment="Top" Height="25" Width="50" RenderTransformOrigin="0.5,2.4"/>
+        <Button Content="Submit" x:Name="OnSubmit" HorizontalAlignment="Left" Margin="105,290,0,0" VerticalAlignment="Top" Height="30" Width="60" RenderTransformOrigin="0.5,2.4"/>
         <Label Content="Marks" HorizontalAlignment="Left" Height="60" Margin="25,210,0,0" VerticalAlignment="Top" Width="130" Foreground="#FFDDAEEC" FontSize="20"/>
-        <TextBox x:Name="Marks" HorizontalAlignment="Left" Margin="25,245,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" RenderTransformOrigin="0.5,0.5" Height="30"/>
+        <TextBox x:Name="Marks" HorizontalAlignment="Left" Margin="25,245,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" RenderTransformOrigin="0.5,0.5" Height="30"/>
 
     </Grid>
 </UserControl>

@@ -3,16 +3,18 @@ using Fibrus.Models;
 using Fibrus.Utils;
 using FibrusWPF.Events;
 using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Controls.Primitives;
 
 namespace FibrusWPF.ViewModels
 {
-	public class ShellViewModel : Conductor<object>, IHandle<SubmitEvent>
+	public class ShellViewModel : Conductor<object>, IHandle<SubmitEvent>, IHandle<DeletionEvent>
     {
 		private readonly IEventAggregator _eventAggregator;
 		private StudentAdditionViewModel StudentAdditionViewModel { get; set; }
+		private StudentDeletionViewModel StudentDeletionViewModel { get; set; }
 
 		private TextDatabase textDatabase = TextDatabase.getInstance();
 
@@ -73,13 +75,26 @@ namespace FibrusWPF.ViewModels
 
         public void LoadStudentDeletionForm()
 		{
-			
+			StudentDeletionViewModel = new StudentDeletionViewModel(_eventAggregator);
+			ActivateItemAsync(StudentDeletionViewModel);
 		}
 
         Task IHandle<SubmitEvent>.HandleAsync(SubmitEvent message, CancellationToken cancellationToken)
 		{
+			Student student = new Student(message.FirstName, message.LastName, StudentsForSelectedClass.Count + 1, message.Marks);
+			StudentsForSelectedClass.Add(student);
+			StudentsForSelectedClass.Refresh();
 			DeactivateItemAsync(StudentAdditionViewModel, true);
             return Task.CompletedTask;
         }
-	}
+		
+		Task IHandle<DeletionEvent>.HandleAsync(DeletionEvent message, CancellationToken cancellationToken)
+		{
+			StudentsForSelectedClass.Remove(StudentsForSelectedClass.Single(s => s.Id == message.Id));
+            StudentsForSelectedClass.Refresh();
+            DeactivateItemAsync(StudentDeletionViewModel, true);
+			return Task.CompletedTask;
+		}
+
+    }
 }

@@ -8,11 +8,19 @@ namespace FibrusWPF.Events
 {
     internal class SubmitEvent
     {
-        public string message { get; set; }
-
-        public SubmitEvent(string message)
+        public SubmitEvent(string firstName, string lastName, string studentClass, string marks)
         {
-            this.message = message;
+            FirstName = firstName;
+            LastName = lastName;
+            StudentClass = studentClass;
+            Marks = marks;
         }
+
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string StudentClass { get; set; }
+        public string Marks { get; set; }
+
+     
     }
 }
