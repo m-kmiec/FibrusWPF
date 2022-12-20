@@ -65,5 +65,21 @@
             </DataGrid.Columns>
         </DataGrid>
 
+        <Button 
+            x:Name="LoadStudentAdditionForm"
+            Content="Add Student" 
+            HorizontalAlignment="Left" 
+            Margin="980,129,0,0"
+            VerticalAlignment="Top"
+            Width="140"/>
+
+        <ContentControl 
+                        x:Name="ActiveItem"
+                        Content="ContentControl" 
+                        HorizontalAlignment="Left" 
+                        Height="350" Margin="935,184,0,0" 
+                        VerticalAlignment="Top"
+                        Width="230"/>
+
     </Grid>
 </Window>

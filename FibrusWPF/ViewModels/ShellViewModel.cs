@@ -4,7 +4,7 @@ using Fibrus.Utils;
 
 namespace FibrusWPF.ViewModels
 {
-	public class ShellViewModel : Screen
+	public class ShellViewModel : Conductor<object>
     {
 		private TextDatabase textDatabase = TextDatabase.getInstance();
 
@@ -50,6 +50,11 @@ namespace FibrusWPF.ViewModels
 		private void UpdateGrid()
 		{
 			StudentsForSelectedClass = new BindableCollection<Student>(SelectedStudentClass.Students);
+		}
+
+		public void LoadStudentAdditionForm()
+		{
+			ActivateItemAsync(new StudentAdditionViewModel());
 		}
 	}
 }

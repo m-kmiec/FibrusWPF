@@ -10,19 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace FibrusWPF.Views
 {
     /// <summary>
-    /// Interaction logic for ShellView.xaml
+    /// Interaction logic for StudentAdditionModel.xaml
     /// </summary>
-    public partial class ShellView : Window
+    public partial class StudentAdditionView : UserControl
     {
-        public ShellView()
+        public StudentAdditionView()
         {
             InitializeComponent();
         }
-
     }
 }
