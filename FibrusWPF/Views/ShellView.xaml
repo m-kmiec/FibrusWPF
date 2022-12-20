@@ -9,16 +9,20 @@
         Title="Fibrus" 
         Height="900" 
         Width="1400" 
-        WindowStartupLocation="CenterScreen">
-    <Grid Background="White" Margin="0,0,-90,-186">
+        WindowStartupLocation="CenterScreen" BorderBrush="Black">
+    <Grid Background="#FF231A1A" Margin="0,0,-90,-51">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="83*"/>
+            <ColumnDefinition Width="66*"/>
+        </Grid.ColumnDefinitions>
 
         <ComboBox 
             HorizontalAlignment="Left" 
-            Margin="398,10,0,0" 
+            Margin="810,104,0,0" 
             VerticalAlignment="Top" 
-            Width="120" Height="39" 
+            Width="85" Height="40" 
             ItemsSource="{ Binding StudentClasses }"
-            SelectedItem="{ Binding SelectedStudentClass }">
+            SelectedItem="{ Binding SelectedStudentClass }" Background="{x:Null}" Foreground="#FF8C2D2D" BorderBrush="#FF691C1C" Grid.ColumnSpan="2">
 
             <ComboBox.ItemTemplate>
                 <DataTemplate>
@@ -30,14 +34,14 @@
         <DataGrid ItemsSource="{Binding StudentsForSelectedClass}"  
                   AlternatingRowBackground="AliceBlue"
                   AutoGenerateColumns="False" 
-                  Margin="25,69,560,25"
-                  Background="White" 
+                  Margin="25,173,575,0"
+                  Background="#FF462D2D" 
                   HeadersVisibility="Column" 
-                  BorderBrush="{x:Null}">
+                  BorderBrush="{x:Null}" Grid.ColumnSpan="2">
 
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
-                    <Setter Property="Background" Value="Orange"/>
+                    <Setter Property="Background" Value="BurlyWood"/>
                     <Setter Property="FontWeight" Value="SemiBold"/>
                     <Setter Property="BorderBrush" Value="Black"/>
                     <Setter Property="Margin" Value="-1,-1,0,1" />
@@ -69,24 +73,77 @@
             x:Name="LoadStudentAdditionForm"
             Content="Add Student" 
             HorizontalAlignment="Left" 
-            Margin="1020,12,0,0"
+            Margin="195,19,0,0"
             VerticalAlignment="Top"
-            Width="140" Height="35"/>
+            Width="140" Height="33" Grid.Column="1">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
 
         <Button 
             x:Name="LoadStudentDeletionForm"
             Content="Delete Student" 
             HorizontalAlignment="Left" 
-            Margin="1190,12,0,0"
+            Margin="375,19,0,0"
             VerticalAlignment="Top"
-            Width="150" Height="35"/>
+            Width="140" Height="33" Grid.Column="1">
+            <Button.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="White" Offset="1"/>
+            </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+        <Button 
+            x:Name="LoadMarkAdditionForm"
+            Content="Add Mark" 
+            HorizontalAlignment="Left" 
+            Margin="195,69,0,0"
+            VerticalAlignment="Top"
+            Width="140" Height="35" Grid.Column="1">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+        <Button 
+            x:Name="LoadMarkDeletionForm"
+            Content="Delete Mark" 
+            HorizontalAlignment="Left" 
+            Margin="375,69,0,0"
+            VerticalAlignment="Top"
+            Width="140" Height="35" Grid.Column="1">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
 
         <ContentControl 
              x:Name="ActiveItem"
              HorizontalAlignment="Left" 
-             Height="525" Margin="975,69,0,0" 
+             Height="565" Margin="195,173,0,0" 
              VerticalAlignment="Top"
-             Width="430"/>
+             Width="405" Grid.Column="1"/>
+        
+        <Image Source="C:\Users\micha\OneDrive\Pulpit\studia\KCK\FibrusWPF\FibrusWPF\FibrusWPF\fibrus.png" HorizontalAlignment="Left" Height="125" Margin="40,19,0,0" VerticalAlignment="Top" Width="187">
+            <Image.OpacityMask>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Offset="1"/>
+                </LinearGradientBrush>
+            </Image.OpacityMask>
+        </Image>
 
     </Grid>
 </Window>

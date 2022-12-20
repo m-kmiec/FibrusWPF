@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="FibrusWPF.Views.MarkDeletionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FibrusWPF.Views"
+             mc:Ignorable="d" Height="590" Width="935">
+
+    <Grid Margin="0,0,485,10">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF7F5353" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <TextBox x:Name="Id" HorizontalAlignment="Left" Margin="25,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" Height="30"/>
+        <TextBox x:Name="Mark" HorizontalAlignment="Left" Margin="25,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" Height="30"/>
+
+        <Label Content="Mark" HorizontalAlignment="Left" Height="35" Margin="20,75,0,0" VerticalAlignment="Top" Width="125" Foreground="#FFDDAEEC" FontSize="20"/>
+        <Label Content="Student's number" HorizontalAlignment="Left" Height="45" Margin="20,0,0,0" VerticalAlignment="Top" Width="175" Foreground="#FFDDAEEC" FontSize="20"/>
+        <Button Content="Submit" x:Name="OnSubmit" HorizontalAlignment="Left" Margin="95,165,0,0" VerticalAlignment="Top" Height="40" Width="75" RenderTransformOrigin="0.5,2.4" Background="#FFE8D0D0" FontSize="18" FontFamily="Lucida Sans Unicode"/>
+    </Grid>
+</UserControl>

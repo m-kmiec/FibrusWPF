@@ -10,11 +10,13 @@ using System.Windows.Controls.Primitives;
 
 namespace FibrusWPF.ViewModels
 {
-	public class ShellViewModel : Conductor<object>, IHandle<SubmitEvent>, IHandle<DeletionEvent>
+	public class ShellViewModel : Conductor<object>, IHandle<SubmitEvent>, IHandle<DeletionEvent>, IHandle<MarkAdditionEvent>, IHandle<MarkDeletionEvent>
     {
 		private readonly IEventAggregator _eventAggregator;
 		private StudentAdditionViewModel StudentAdditionViewModel { get; set; }
 		private StudentDeletionViewModel StudentDeletionViewModel { get; set; }
+		private MarkAdditionViewModel MarkAdditionViewModel { get; set; }
+		private MarkDeletionViewModel MarkDeletionViewModel { get; set; }
 
 		private TextDatabase textDatabase = TextDatabase.getInstance();
 
@@ -78,11 +80,23 @@ namespace FibrusWPF.ViewModels
 			StudentDeletionViewModel = new StudentDeletionViewModel(_eventAggregator);
 			ActivateItemAsync(StudentDeletionViewModel);
 		}
+		public void LoadMarkAdditionForm()
+		{
+			MarkAdditionViewModel = new MarkAdditionViewModel(_eventAggregator);
+			ActivateItemAsync(MarkAdditionViewModel);
+		}
+		
+		public void LoadMarkDeletionForm()
+		{
+            MarkDeletionViewModel = new MarkDeletionViewModel(_eventAggregator);
+            ActivateItemAsync(MarkDeletionViewModel);
+        }
 
         Task IHandle<SubmitEvent>.HandleAsync(SubmitEvent message, CancellationToken cancellationToken)
 		{
 			Student student = new Student(message.FirstName, message.LastName, StudentsForSelectedClass.Count + 1, message.Marks);
 			StudentsForSelectedClass.Add(student);
+			textDatabase.AddStudent(message.FirstName, message.LastName, SelectedStudentClass.ClassName, message.Marks);
 			StudentsForSelectedClass.Refresh();
 			DeactivateItemAsync(StudentAdditionViewModel, true);
             return Task.CompletedTask;
@@ -96,5 +110,25 @@ namespace FibrusWPF.ViewModels
 			return Task.CompletedTask;
 		}
 
-    }
+		Task IHandle<MarkAdditionEvent>.HandleAsync(MarkAdditionEvent message, CancellationToken cancellationToken)
+		{
+			StudentsForSelectedClass.First(s => s.Id == message.StudentId).MarkString += (", " + message.Mark);
+			textDatabase.AddMark(message.StudentId, Convert.ToInt32(message.Mark), SelectedStudentClass.Id);
+            StudentsForSelectedClass.Refresh();
+			DeactivateItemAsync(MarkAdditionViewModel, true);
+            return Task.CompletedTask;
+        }
+
+		Task IHandle<MarkDeletionEvent>.HandleAsync(MarkDeletionEvent message, CancellationToken cancellationToken)
+		{
+            Student student = textDatabase.DeleteMark(message.StudentId, Convert.ToInt32(message.Mark), SelectedStudentClass.Id);
+			student.MarkString = student.MarksToString();
+			StudentsForSelectedClass[message.StudentId - 1] = student;
+            StudentsForSelectedClass.Refresh();
+
+			DeactivateItemAsync(MarkDeletionViewModel, true);
+
+            return Task.CompletedTask;
+		}
+	}
 }

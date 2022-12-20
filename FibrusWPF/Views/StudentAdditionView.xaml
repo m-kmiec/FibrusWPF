@@ -5,8 +5,14 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FibrusWPF.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Margin="0,0,605,20">
+             d:DesignHeight="450" Width="800">
+    <Grid Margin="0,0,565,20">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF7F5353" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
 
         <TextBox x:Name="FirstName" HorizontalAlignment="Left" Margin="25,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="30"/>
         <TextBox x:Name="LastName" HorizontalAlignment="Left" Margin="25,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" RenderTransformOrigin="0.5,0.5" Height="30"/>
@@ -16,7 +22,7 @@
         <Label Content="Name" HorizontalAlignment="Left" Height="45" Margin="20,10,0,0" VerticalAlignment="Top" Width="130" Foreground="#FFDDAEEC" FontSize="20"/>
         <Label Content="Class" HorizontalAlignment="Left" Height="40" Margin="20,140,0,0" VerticalAlignment="Top" Width="130" Foreground="#FFDDAEEC" FontSize="20"/>
 
-        <Button Content="Submit" x:Name="OnSubmit" HorizontalAlignment="Left" Margin="105,290,0,0" VerticalAlignment="Top" Height="30" Width="60" RenderTransformOrigin="0.5,2.4"/>
+        <Button Content="Submit" x:Name="OnSubmit" HorizontalAlignment="Center" Margin="0,290,0,0" VerticalAlignment="Top" Height="40" Width="73" RenderTransformOrigin="0.5,2.4" Background="#FFE8D0D0" FontSize="18" FontFamily="Lucida Sans Unicode"/>
         <Label Content="Marks" HorizontalAlignment="Left" Height="60" Margin="25,210,0,0" VerticalAlignment="Top" Width="130" Foreground="#FFDDAEEC" FontSize="20"/>
         <TextBox x:Name="Marks" HorizontalAlignment="Left" Margin="25,245,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" RenderTransformOrigin="0.5,0.5" Height="30"/>
 
