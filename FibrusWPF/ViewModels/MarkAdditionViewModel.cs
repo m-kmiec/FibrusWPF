@@ -6,9 +6,13 @@ using FibrusWPF.Events;
 namespace FibrusWPF.ViewModels
 {
     internal class MarkAdditionViewModel : Screen
-    {
+    {        
+        private IEventAggregator eventAggregator;
+
         private int _id;
+
         private string _mark;
+
         public int Id
         {
             get { return _id; }
@@ -27,8 +31,6 @@ namespace FibrusWPF.ViewModels
                 NotifyOfPropertyChange(() => Mark);
             }
         }
-
-        private IEventAggregator eventAggregator;
 
         public MarkAdditionViewModel(IEventAggregator eventAggregator)
         {

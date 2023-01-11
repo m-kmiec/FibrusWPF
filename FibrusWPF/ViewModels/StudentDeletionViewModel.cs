@@ -12,14 +12,16 @@ namespace FibrusWPF.ViewModels
 
         public int Id
         {
-            get { return _id; }
-            set { _id = value;
+            get 
+            {
+                return _id;
+            }
+            set 
+            { 
+                _id = value;
                 NotifyOfPropertyChange(() => Id);
-
             }
         }
-
-
         public StudentDeletionViewModel(IEventAggregator eventAggregator)
         {
             _eventAggregator = eventAggregator;
@@ -27,7 +29,7 @@ namespace FibrusWPF.ViewModels
 
         public void OnSubmit()
         {
-            _eventAggregator.PublishOnUIThreadAsync(new DeletionEvent(Id));
+            _eventAggregator.PublishOnUIThreadAsync(new StudentDeletionEvent(Id));
         }
     }
 }

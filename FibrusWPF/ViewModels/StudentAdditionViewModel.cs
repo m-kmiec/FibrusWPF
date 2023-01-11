@@ -14,38 +14,62 @@ namespace FibrusWPF.ViewModels
     {
 		private readonly IEventAggregator _eventAggregator;
 
-        private TextDatabase textDatabase = TextDatabase.getInstance();
-
         private string _firstName;
+
 		private string _lastName;
+
 		private string _className;
+
 		private string _marks;
+
 		public string FirstName
 		{
-			get { return _firstName; }
-			set { _firstName = value;
+			get 
+			{ 
+				return _firstName;
+			}
+			set 
+			{ 
+				_firstName = value;
 				NotifyOfPropertyChange(() => FirstName);
 			}
 		}
+
 		public string LastName
 		{
-			get { return _lastName; }
-			set { _lastName = value;
+			get 
+			{
+				return _lastName; 
+			}
+			set 
+			{ 
+				_lastName = value;
 				NotifyOfPropertyChange(() => LastName);
 			}
 		}
+
 		public string ClassName
 		{
-			get { return _className; }
-			set { _className = value;
+			get 
+			{
+				return _className; 
+			}
+			set 
+			{ 
+				_className = value;
 				NotifyOfPropertyChange(() => ClassName);
 			}
 		}
 
 		public string Marks
 		{
-			get { return _marks; }
-			set { _marks = value;
+			get 
+			{
+				return _marks; 
+			}
+			set 
+			{ 
+				_marks = value;
 				NotifyOfPropertyChange(() => Marks);
 			}
 		}
@@ -56,8 +80,11 @@ namespace FibrusWPF.ViewModels
 		}
 		public void OnSubmit()
 		{
-			_eventAggregator.PublishOnUIThreadAsync(new SubmitEvent(FirstName, LastName, ClassName, Marks));
-			textDatabase.AddStudent(FirstName, LastName, ClassName, Marks);
+			_eventAggregator.PublishOnUIThreadAsync(new StudentAdditionEvent(
+																	FirstName,
+																	LastName,
+																	ClassName,
+																	Marks));
 		}
 
 	}

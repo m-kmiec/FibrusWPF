@@ -8,14 +8,12 @@ namespace FibrusWPF.Events
 {
     internal class MarkAdditionEvent
     {
+        public int StudentId { get; set; }
+        public string Mark { get; set; }
         public MarkAdditionEvent(int studentId, string mark)
         {
             StudentId = studentId;
             Mark = mark;
-        }
-
-        public int StudentId { get; set; }
-
-        public string Mark { get; set; }
+        }    
     }
 }

@@ -6,6 +6,7 @@ namespace FibrusWPF.ViewModels
     internal class MarkDeletionViewModel : Screen
     {
         private int _id;
+
         private string _mark;
         public int Id
         {
@@ -34,6 +35,7 @@ namespace FibrusWPF.ViewModels
         {
             this.eventAggregator = eventAggregator;
         }
+
         public void OnSubmit()
         {
             eventAggregator.PublishOnUIThreadAsync(new MarkDeletionEvent(Id, Mark));

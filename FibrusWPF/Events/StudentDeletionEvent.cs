@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace FibrusWPF.Events
 {
-    internal class DeletionEvent
+    internal class StudentDeletionEvent
     {
         public int Id { get; set; }
 
-        public DeletionEvent(int id)
+        public StudentDeletionEvent(int id)
         {
             Id = id;
         }

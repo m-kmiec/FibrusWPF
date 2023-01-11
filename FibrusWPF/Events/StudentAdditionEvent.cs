@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace FibrusWPF.Events
 {
-    internal class SubmitEvent
+    internal class StudentAdditionEvent
     {
-        public SubmitEvent(string firstName, string lastName, string studentClass, string marks)
+        public StudentAdditionEvent(string firstName, string lastName, string studentClass, string marks)
         {
             FirstName = firstName;
             LastName = lastName;
